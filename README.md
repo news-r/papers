@@ -23,7 +23,7 @@ remotes::install_github("news-r/papers")
 
 You can either use `get_regions` and `get_papers` to get the latest data or you can use the `papers` dataset which should include all newspapers worldwide (at least the major ones).
 
-## data
+## Data
 
 
 ```r
