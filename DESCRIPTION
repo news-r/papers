@@ -11,7 +11,13 @@ Description: Politely scrape 'newspaperindex'.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports: rvest
+Imports: 
+    cli,
+    crayon,
+    tibble,
+    rvest,
+    polite,
+    magrittr
 Remotes:
     dmi3kno/polite
 RoxygenNote: 6.1.1

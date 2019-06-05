@@ -1,0 +1,43 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+<!-- badges: start -->
+[![Travis build status](https://travis-ci.org/news-r/papers.svg?branch=master)](https://travis-ci.org/news-r/papers)
+<!-- badges: end -->
+
+# papers
+
+The goal of papers is to ...
+
+## Installation
+
+You can install the released version of papers from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+# install.packages("remotes")
+remotes::install_github("news-r/papers")
+```
+
+## Example
+
+```{r example}
+library(papers)
+
+# get the list of regions available
+regions <- get_regions()
+
+# get papers from a specific region
+(papers <- get_papers(regions, "Belgium"))
+```

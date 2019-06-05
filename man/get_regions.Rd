@@ -4,8 +4,12 @@
 \alias{get_regions}
 \title{Regions}
 \usage{
-get_regions(user_agent = get_user_agent())
+get_regions()
 }
 \description{
 Get the list of regions available.
+}
+\examples{
+regions <- get_regions()
+
 }
