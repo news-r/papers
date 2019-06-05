@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 
 # papers
 
-The goal of papers is to ...
+Access online newspapers information.
 
 ## Installation
 
