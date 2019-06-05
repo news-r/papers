@@ -12,7 +12,7 @@ get_papers(data, region)
 \arguments{
 \item{data}{Dataset as returned by \code{\link{get_regions}}.}
 
-\item{region}{Name of the region.}
+\item{region}{Name of the region \emph{or} index of region in \code{data}.}
 }
 \description{
 Get papers from a certain region.
@@ -20,5 +20,6 @@ Get papers from a certain region.
 \examples{
 regions <- get_regions()
 get_papers(regions, "Belgium")
+get_papers(regions, 15) # 15th country in the regions data.frame
 
 }

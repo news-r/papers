@@ -63,11 +63,12 @@ set_user_agent <- function(agent){
 #' Get papers from a certain region.
 #' 
 #' @param data Dataset as returned by \code{\link{get_regions}}.
-#' @param region Name of the region.
+#' @param region Name of the region \emph{or} index of region in \code{data}.
 #' 
 #' @examples
 #' regions <- get_regions()
 #' get_papers(regions, "Belgium")
+#' get_papers(regions, 15) # 15th country in the regions data.frame
 #' 
 #' @name get_papers
 #' @export
@@ -80,7 +81,10 @@ get_papers.regions <- function(data, region){
   if(missing(region))
     stop("Missing region", call. = FALSE)
 
-  subset <- data[data[["region"]] == region,]
+  if(inherits(region, "character"))
+    subset <- data[data[["region"]] == region,]
+  else
+    subset <- data[region, ]
   url <- subset[["link"]]
   region <- subset[["region"]]
 
@@ -89,7 +93,7 @@ get_papers.regions <- function(data, region){
     html_node(".cList") %>% 
     html_nodes("li") 
 
-  region <- html_text(result) %>% 
+  newspaper <- html_text(result) %>% 
     gsub("\\(.+\\)", "", .) %>% 
     trimws()
   link <- result %>% 
@@ -97,7 +101,7 @@ get_papers.regions <- function(data, region){
     html_attr("href")
   
   df <- tibble::tibble(
-    region = region,
+    newspaper = newspaper,
     link = link
   ) 
   df[["region"]] <- region 
