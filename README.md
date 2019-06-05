@@ -8,7 +8,7 @@
 
 # papers
 
-The goal of papers is to ...
+Access online newspapers information.
 
 ## Installation
 
