@@ -1,54 +1,60 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-
-
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.org/news-r/papers.svg?branch=master)](https://travis-ci.org/news-r/papers)
-<!-- badges: end -->
+[![Travis build status](https://travis-ci.org/news-r/papers.svg?branch=master)](https://travis-ci.org/news-r/papers) <!-- badges: end -->
 
-# papers
+papers
+======
 
 Access online newspapers information.
 
-## Installation
+Installation
+------------
 
-You can install the released version of papers from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of papers Github with:
 
 ``` r
 # install.packages("remotes")
 remotes::install_github("news-r/papers")
 ```
 
-## Usage
+Usage
+-----
 
 You can either use `get_regions` and `get_papers` to get the latest data or you can use the `papers` dataset which should include all newspapers worldwide (at least the major ones).
 
-## Data
+Data
+----
 
-
-```r
+``` r
 data("papers", package = "papers")
 head(papers)
-#> # A tibble: 6 x 3
-#>   newspaper                     link                              region   
-#>   <chr>                         <chr>                             <chr>    
-#> 1 Afghan Daily                  https://wn.com/Afghan_daily       Afghanis…
-#> 2 Afghanistan Times             http://afghanistantimes.af/       Afghanis…
-#> 3 Afghanistan.ru -              http://www.farsi.ru/              Afghanis…
-#> 4 Benawa.com                    http://www.benawa.com/            Afghanis…
-#> 5 Inter Press Service - Afghan… http://www.ipsnews.net/           Afghanis…
-#> 6 IRIN Afghanistan              http://www.irinnews.org/asia/afg… Afghanis…
+#>                           newspaper
+#> 1                      Afghan Daily
+#> 2                 Afghanistan Times
+#> 3                  Afghanistan.ru -
+#> 4                        Benawa.com
+#> 5 Inter Press Service - Afghanistan
+#> 6                  IRIN Afghanistan
+#>                                       link      region
+#> 1              https://wn.com/Afghan_daily Afghanistan
+#> 2              http://afghanistantimes.af/ Afghanistan
+#> 3                     http://www.farsi.ru/ Afghanistan
+#> 4                   http://www.benawa.com/ Afghanistan
+#> 5                  http://www.ipsnews.net/ Afghanistan
+#> 6 http://www.irinnews.org/asia/afghanistan Afghanistan
 ```
 
-## Example
+Example
+-------
 
-
-```r
+``` r
 library(papers)
 
 # get the list of regions available
 regions <- get_regions()
-#> Error in curl::curl_fetch_memory(url, handle = handle): Error in the HTTP2 framing layer
+#> No encoding supplied: defaulting to UTF-8.
+#> ℹ 214 Countries
 
 # get papers from a specific region
 (papers <- get_papers(regions, "Belgium"))
